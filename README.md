@@ -1,4 +1,4 @@
-# This Starter Code
+# This is Starter Code
 
 It belongs to the bookmarks monorepo build
 
