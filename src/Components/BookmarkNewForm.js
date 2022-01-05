@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { apiURL } from "../util/apiURL.js";
-const API = apiURL();
+
+const API = process.env.REACT_APP_API_URL;
 
 function BookmarkNewForm() {
   let navigate = useNavigate();

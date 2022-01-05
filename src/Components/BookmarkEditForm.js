@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { apiURL } from "../util/apiURL";
+
+const API = process.env.REACT_APP_API_URL;
 
 function BookmarkEditForm() {
   let { id } = useParams();
   let navigate = useNavigate();
-  const API = apiURL();
 
   const [bookmark, setBookmark] = useState({
     name: "",
