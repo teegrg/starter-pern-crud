@@ -1,18 +1,18 @@
 import axios from "axios";
 import { useState } from "react";
-import { useHistory, withRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { apiURL } from "../util/apiURL.js";
 const API = apiURL();
 
 function BookmarkNewForm() {
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const addBookmark = (newBookmark) => {
     axios
       .post(`${API}/bookmarks`, newBookmark)
       .then(
         () => {
-          history.push(`/bookmarks`);
+          navigate(`/bookmarks`);
         },
         (error) => console.error(error)
       )
@@ -84,4 +84,4 @@ function BookmarkNewForm() {
   );
 }
 
-export default withRouter(BookmarkNewForm);
+export default BookmarkNewForm;

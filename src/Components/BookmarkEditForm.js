@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
 
 function BookmarkEditForm() {
   let { id } = useParams();
-  let history = useHistory();
+  let navigate = useNavigate();
   const API = apiURL();
 
   const [bookmark, setBookmark] = useState({
@@ -20,7 +20,7 @@ function BookmarkEditForm() {
       .put(`${API}/bookmarks/${id}`, updatedBookmark)
       .then(
         () => {
-          history.push(`/bookmarks/${id}`);
+          navigate(`/bookmarks/${id}`);
         },
         (error) => console.error(error)
       )
@@ -38,9 +38,9 @@ function BookmarkEditForm() {
   useEffect(() => {
     axios.get(`${API}/bookmarks/${id}`).then(
       (response) => setBookmark(response.data),
-      (error) => history.push(`/not-found`)
+      (error) => navigate(`/not-found`)
     );
-  }, [id, history, API]);
+  }, [id, navigate, API]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { withRouter } from "react-router-dom";
+// import { useState } from "react";
 
 function BookmarkDetails() {
-  const [bookmark, setBookmark] = useState([]);
+  // const [bookmark, setBookmark] = useState([]);
   return <article></article>;
 }
 
-export default withRouter(BookmarkDetails);
+export default BookmarkDetails;
