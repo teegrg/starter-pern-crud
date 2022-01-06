@@ -40,7 +40,7 @@ function BookmarkEditForm() {
       (response) => setBookmark(response.data),
       (error) => navigate(`/not-found`)
     );
-  }, [id, navigate, API]);
+  }, [id, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
